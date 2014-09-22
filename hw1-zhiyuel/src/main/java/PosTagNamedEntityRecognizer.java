@@ -17,13 +17,37 @@ import edu.stanford.nlp.util.CoreMap;
 public class PosTagNamedEntityRecognizer {
 
   private StanfordCoreNLP pipeline;
-
+/**
+ * test PosTagNamedEntityRecognizer
+ * */
+  public static void main(String[] args){
+    try {
+      @SuppressWarnings("unused")
+      PosTagNamedEntityRecognizer Taggers=new PosTagNamedEntityRecognizer();
+      
+      
+      Map<Integer, Integer> occurences = Taggers.getGeneSpans("The elevated Viso V in the RDS group suggests an increase in small "
+              + "airway resistance secondary to the disease or to its therapy.");
+      for (Map.Entry<Integer, Integer> entry : occurences.entrySet())
+      {
+        System.out.println(entry.getKey()+","+entry.getValue());
+      }
+      System.out.println("ending...");
+    } catch (ResourceInitializationException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();//报错在这里！
+    }
+    
+  }
   public PosTagNamedEntityRecognizer() throws ResourceInitializationException {
     Properties props = new Properties();
     props.put("annotators", "tokenize, ssplit, pos");
     pipeline = new StanfordCoreNLP(props);
   }
-
+/**
+ * @param text
+ * @return <start,end>
+ * */
   public Map<Integer, Integer> getGeneSpans(String text) {
     Map<Integer, Integer> begin2end = new HashMap<Integer, Integer>();
     Annotation document = new Annotation(text);
