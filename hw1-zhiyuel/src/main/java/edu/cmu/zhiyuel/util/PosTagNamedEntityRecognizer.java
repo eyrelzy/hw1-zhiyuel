@@ -35,8 +35,8 @@ public class PosTagNamedEntityRecognizer {
     pipeline = new StanfordCoreNLP(props);
   }
 /**
- * @param metadata text
- * @return get a pair of start and end point of the noun in the sentence.
+ * @param text 
+ * @return get a set of pairs of start and end point of the noun in the sentence.
  * */
   public Map<Integer, Integer> getGeneSpans(String text) {
     Map<Integer, Integer> begin2end = new HashMap<Integer, Integer>();

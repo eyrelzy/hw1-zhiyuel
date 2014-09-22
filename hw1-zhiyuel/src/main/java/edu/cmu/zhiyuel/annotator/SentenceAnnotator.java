@@ -21,24 +21,23 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
    * <p>The previous collection reader initializes the Jcas. This annotator get the document text form Jcas.
    * The span from start of each line to the first white space is the SentenceID. According to this property, we 
    * split up the original document and update the jcas.
-   * 
+   * @see org.apache.uima.collection.JCasAnnotator_ImplBase#process()
    * */
   @Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     // TODO Auto-generated method stub
-    System.out.println("Annotating Sentence");
-    String docText = aJCas.getDocumentText().trim();
-    String text[] = docText.split("[\\n]");
-    for (int i = 0; i < text.length; i++) {
-      int firstSpace = text[i].indexOf(' ');
+    System.out.println("Annotating Sentence...");
+    String[] strstext = aJCas.getDocumentText().trim().split("[\\n]");
+    for (int i = 0; i < strstext.length; i++) {
+      int firstSpace = strstext[i].indexOf(' ');
       // System.out.println(text[i]);
-      String sentenceId = text[i].substring(0, firstSpace);
-      String sentenceText = text[i].substring(firstSpace).trim();
+      String sentenceId = strstext[i].substring(0, firstSpace).trim();
+      String sentenceText = strstext[i].substring(firstSpace).trim();
       //System.out.println(sentenceText);
-      Sentence annotation = new Sentence(aJCas);
-      annotation.setSentenceId(sentenceId);
-      annotation.setText(sentenceText);
-      annotation.addToIndexes();
+      Sentence an = new Sentence(aJCas);
+      an.setSentenceId(sentenceId);
+      an.setText(sentenceText);
+      an.addToIndexes();
       //System.out.println("=======Sentence======="+aJCas.getAnnotationIndex(Sentence.type).iterator().hasNext());
     }
   }

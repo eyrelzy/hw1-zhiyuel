@@ -37,7 +37,7 @@ public class GeneCasConsumer extends CasConsumer_ImplBase {
 
   /**
    * get the configuration parameters from .xml
-   * 
+   * read context from sample.out for further computing precision and recall rate
    * */
   @Override
   public void initialize() {
@@ -159,7 +159,7 @@ public class GeneCasConsumer extends CasConsumer_ImplBase {
     if(strset.contains(phrase)){
      correct++;
     }
-    bw.write(geneIdentifier + "|" + start + " " + end + "|" + geneName);
+    bw.write(phrase);
     bw.newLine();
     bw.flush();
   }

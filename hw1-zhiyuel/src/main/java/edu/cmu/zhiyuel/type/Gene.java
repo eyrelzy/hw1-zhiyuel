@@ -45,7 +45,7 @@ public class Gene extends Annotation {
     readObject();
   }
   
-  /** @generated
+  /**
    * @param jcas JCas to which this Feature Structure belongs 
    */
   public Gene(JCas jcas) {
@@ -53,7 +53,7 @@ public class Gene extends Annotation {
     readObject();   
   } 
 
-  /** @generated
+  /** 
    * @param jcas JCas to which this Feature Structure belongs
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
