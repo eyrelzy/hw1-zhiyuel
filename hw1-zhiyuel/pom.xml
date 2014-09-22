@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.cmu.lti.11791.f14.hw1</groupId>
   <artifactId>hw1-zhiyuel</artifactId>
-  <version>1.0</version>
+  <version>3.0</version>
   <repositories>
     <repository>
       <id>oaqa</id>
@@ -123,6 +123,6 @@
   <scm>
   	<connection>scm:git:git@github.com:eyrelzy/hw1-zhiyuel.git</connection>
   	<developerConnection>scm:git:git@github.com:eyrelzy/hw1-zhiyuel.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>hw1-zhiyuel-1.0</tag>
   </scm>
 </project>
